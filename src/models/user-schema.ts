@@ -20,14 +20,14 @@ const userSchema = new Schema<IUser>({
   id: { type: String, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  role: {type: String, enum: ["admin", "user", "project-manager"], default: "user"},
+  role: {type: String, enum: ["admin", "user", "project-manager"], default: "user"}
 });
 
 userSchema.methods.comparePasswords = function (
   candidatePassword: string,
   next: (err: Error | null, same: boolean | null) => void
 ) {
-  bcrypt.compare(candidatePassword, this.password, function (err: Error, isMatch: boolean) {
+  bcrypt.compare(candidatePassword, this.password, function (err: Error | undefined, isMatch: boolean) {
     if (err) {
       return next(err, null);
     }

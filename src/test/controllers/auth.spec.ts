@@ -22,6 +22,7 @@ describe("auth service", () => {
     firstName: "Test",
     lastName: "User",
     id: uuid(),
+    role: "project-manager"
   };
 
   before(async () => {
