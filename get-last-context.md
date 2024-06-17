@@ -8,7 +8,7 @@ NEXT
 - [x] Get Signup and Login Working with postman
 - [x] Add confirm password (happens on FE)
 - [x] Get JWT returned on login working (https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs)
-- [ ] Start on timesheets - save done
+- [ ] Start on assignments - save done
 
 - [ ] Once FE is sending JWT, get Login accepts JWT working (see below for hints)
 

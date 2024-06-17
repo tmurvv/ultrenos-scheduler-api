@@ -1,3 +1,3 @@
 export { authRouter } from "./auth-router";
-export { timesheetRouter } from "./timesheet-router";
+export { assignmentRouter } from "./assignment-router";
 export { userRouter } from "./user-router";

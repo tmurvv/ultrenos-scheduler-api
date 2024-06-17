@@ -1,44 +1,45 @@
 import { Document, Schema, model } from "mongoose";
 
-export interface ITimesheet extends Document {
-  userId: String;
+export interface IAssignment extends Document {
+  projectManagerId: String;
   id: String;
-  lunchInMinutes: Number;
   timeIn: Date;
   timeOut: Date;
   timeEntered: Date;
   location: String;
   typeOfWork: String;
+  resourceId: String;
   notes: String;
 }
 
-const timesheetSchema = new Schema<ITimesheet>({
+const assignmentSchema = new Schema<IAssignment>({
   id: { type: String, required: true },
-  userId: { type: String, required: true },
+  projectManagerId: { type: String, required: true },
   timeIn: { type: Date, required: true },
-  timeOut: { type: Date, required: true },
+  timeOut: { type: Date },
+  allDay: { type: Boolean},
   timeEntered: { type: Date, required: true },
   location: { type: String, required: true },
-  lunchInMinutes: { type: Number, required: true },
   typeOfWork: {
     type: String,
     enum: ["painting", "flooring", "deck", "landscape", "plumbing", "cabinets"],
   },
+  resourceId: { type: String },
   notes: { type: String },
 });
 
-timesheetSchema.set("toJSON", {
+assignmentSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     delete returnedObject._id;
     delete returnedObject.__v;
   },
 });
 
-timesheetSchema.set("toObject", {
+assignmentSchema.set("toObject", {
   transform: function (doc, ret) {
     delete ret._id;
     delete ret.__v;
   },
 });
 
-export const Timesheet = model("timesheet", timesheetSchema);
+export const Assignment = model("assignment", assignmentSchema);

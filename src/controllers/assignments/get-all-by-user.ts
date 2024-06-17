@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 
-import { Timesheet } from "../../models/timesheet-schema";
+import { Assignment } from "../../models/assignment-schema";
 import { User } from "../../models/user-schema";
 
 const getUserId = async (id: string) => {
   if (id.includes("@")) {
-    const user = await User.findOne({ email: id });
+    const user: User = await User.findOne({ email: id });
     if (user) return user ? user.id : undefined;
   }
 
@@ -14,9 +14,14 @@ const getUserId = async (id: string) => {
 
 export const getAllByUser = async (req: Request, res: Response) => {
   const id: string = req.params.id;
-  const userId = await getUserId(id);
+  const isEmail: boolean = id.includes("@");
 
-  const result = await Timesheet.find({ userId });
+  if (isEmail) {
+    const user: User = await User.find({ email: id });
+    if (user) return user ? user.id : undefined;
+  }
+
+  const result = await Assignment.findOne({ id });
 
   res.json(result);
 };

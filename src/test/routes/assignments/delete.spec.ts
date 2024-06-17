@@ -3,10 +3,9 @@ import request from "supertest";
 import { createServer } from "create-server";
 import { describe } from "mocha";
 
-describe("timesheet routes", function () {
-  it("getOne responds with 200", async function () {
+describe("assignment routes", function () {
+  it("delete responds with 204", async function () {
     const app = await createServer();
-
-    request(app).get("/v1/timesheets/getId").expect(200);
+    request(app).delete("/v1/assignments/deleteId").expect(204);
   });
 });

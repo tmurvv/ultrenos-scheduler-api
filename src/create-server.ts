@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
-import { authRouter, timesheetRouter, userRouter } from "./routes";
+import { authRouter, assignmentRouter, userRouter } from "./routes";
 
 export const createServer = async () => {
   const app = express();
@@ -29,7 +29,7 @@ export const createServer = async () => {
   });
 
   app.use(authRouter);
-  app.use(timesheetRouter);
+  app.use(assignmentRouter);
   app.use(userRouter);
 
   app.use((err: string, req: Request, res: Response, next: NextFunction) => { // removing the unused next function will cause tests to fail

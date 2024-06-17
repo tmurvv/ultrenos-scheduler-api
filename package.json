@@ -12,7 +12,7 @@
     "test": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \\\\\\\"src/test/**/*.spec.ts\\\\\\\"",
     "testAuth": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \\\\\\\"src/test/**/auth.spec.ts\\\\\\\"",
     "testUsers": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \\\\\\\"src/test/**/users.spec.ts\\\\\\\"",
-    "testTimesheets": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \\\\\\\"src/test/**/timesheets.spec.ts\\\\\\\"",
+    "testAssignments": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \\\\\\\"src/test/**/assignments.spec.ts\\\\\\\"",
     "pretty": "npx prettier --write api",
     "p": "npx prettier --write api"
   },

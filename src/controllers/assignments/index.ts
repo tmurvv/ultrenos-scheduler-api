@@ -4,7 +4,7 @@ import { getAllByUser } from "./get-all-by-user";
 import { getOne } from "./get-one";
 import { save } from "./save";
 
-export const timesheetControllers = {
+export const assignmentControllers = {
   del,
   getAll,
   getAllByUser,

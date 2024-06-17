@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Timesheet } from "../../models/timesheet-schema";
+import { Assignment } from "../../models/assignment-schema";
 
 export const getAll = async (req: Request, res: Response) => {
-  const data: object[] = await Timesheet.find({});
+  const data: object[] = await Assignment.find({});
 
   if (!data) {
     return res
@@ -14,7 +14,7 @@ export const getAll = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     status: "success",
-    message: `returning ${length} timesheet${length === 1 ? "" : "s"}`,
+    message: `returning ${length} assignment${length === 1 ? "" : "s"}`,
     data,
   });
 };
